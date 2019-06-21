@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		table
+		{
+			width:800px;
+			margin-left: 50px;
+			margin-top: 50px;
+
+		}
+		table th
+
+		{
+			background-color: black;
+			color:white;
+			text-align: center;
+		}
+		table td
+		{
+			background-color: grey;
+			text-align: center;
+		}
+		table td img
+		{
+			height: 25px;
+			width: 25px;
+		}
+
+	</style>
+</head>
+<body>
+<h1>ALL Student Record Here</h1>
+{% if key %}
+   <table border="1">
+
+   	<tr><th>RNO</th><th>NAME</th><th>BRANCH</th><th>FEES</th></tr>
+    {% for stu in key %}
+      <tr>  <td>{{ stu.rno }}</td>
+         <td>{{ stu.sname }}</td>
+          <td>{{ stu.branch }}</td>
+          <td>{{ stu.fees }}</td>
+          <td><a href="Editstudent?q={{ stu.id }}"><img src="/static/guest/img/edit.ico"></a><a href="Deletestudent?q={{ stu.id }}"><img src="/static/guest/img/del.png" ></a></td>
+     </tr>
+    {% endfor %}
+    {% else %}
+
+    <p>No students are available.</p>
+{% endif %}
+
+</body>
+</html>

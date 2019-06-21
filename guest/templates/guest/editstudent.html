@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+Welcome {{key.sname}}
+
+<form action="addstudent" method="post" >
+	{% csrf_token %}
+<input type="text" name="txtrno" value="{{key.rno}}" />
+<br>
+<br>
+<input type="text" name="txtname" value="{{key.sname}}" />
+<br>
+<br>
+<input type="text" name="txtbranch" value="{{key.branch}}" />
+<br>
+<br>
+<input type="text" name="txtfees" value="{{key.fees}}" />
+<br>
+<br>
+<input type="submit" name="btnsubmit" value="Update" />
+
+
+
+</form>
+</body>
+</html>
