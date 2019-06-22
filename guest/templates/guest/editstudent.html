@@ -6,8 +6,9 @@
 <body>
 Welcome {{key.sname}}
 
-<form action="addstudent" method="post" >
+<form action="updatestudent" method="post" >
 	{% csrf_token %}
+<input type="hidden" name="txtid" value="{{key.id}}" />	
 <input type="text" name="txtrno" value="{{key.rno}}" />
 <br>
 <br>

@@ -48,6 +48,26 @@
 
     <p>No students are available.</p>
 {% endif %}
+   <form action="addstudent" method="post" >
+	{% csrf_token %}
+	<tr><td>
 
+<input type="text" name="txtrno" placeholder="enter rno" />
+</td><td>
+<input type="text" name="txtname" placeholder="enter name" />
+</td>
+<td>
+<input type="text" name="txtbranch" placeholder="enter branch" />
+</td>
+<td>
+<input type="text" name="txtfees" placeholder="enter fees" />
+</td>
+<td>
+<input type="submit" name="btnsubmit" value="Add" />
+</td>
+</tr>
+
+
+</form>
 </body>
 </html>

@@ -4,25 +4,24 @@
 	<title></title>
 </head>
 <body>
-<form action="addstudent" method="post" >
+<center>	
+	<h1>Student LOGIN HERE</h1>
+<form action="loginstudent" method="post" >
 	{% csrf_token %}
-<input type="text" name="txtrno" placeholder="enter rno" />
+<input type="text" name="txtuser" placeholder="enter username" />
 <br>
 <br>
-<input type="text" name="txtname" placeholder="enter name" />
+<input type="password" name="txtpass" placeholder="enter password" />
 <br>
 <br>
-<input type="text" name="txtbranch" placeholder="enter branch" />
-<br>
-<br>
-<input type="text" name="txtfees" placeholder="enter fees" />
-<br>
-<br>
-<input type="submit" name="btnsubmit" value="Add" />
+
+<input type="submit" name="btnsubmit" value="Login" />
 
 
 
 </form>
-<a href="viewstudent">View Student Record</a>
+{{key}}
+</center>
+
 </body>
 </html>
