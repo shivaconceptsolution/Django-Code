@@ -1,0 +1,76 @@
+    *{
+     	margin: 0px;
+     }
+     #container
+     {
+     	height: 700px;
+     }
+     #header
+     {
+     	background-color: red;
+     	height: 20%;
+     }	
+     #header ul li
+     {
+     	display: inline-block;
+     	margin-left: 30px;
+     	margin-top: 30px;
+     }
+     #header ul li a
+     {
+     	color:white;
+     	text-transform: uppercase;
+     	text-decoration: none;
+     }
+     #middle
+     {
+     	background-color: black;
+     	color:white;
+     	height: 75%;
+     } 
+     #middle p
+     {
+     	top: 200px;
+          position: relative;
+
+     }
+     .part
+     {
+          width:400px;
+          height: 300px;
+          border: 1px solid red;
+          float:    left;
+          margin-top: 20px;
+          margin-left:20px;
+         
+     }
+     #search
+     {
+          top: 50px;
+          left: 50px;
+          position: relative;
+     }
+     #search input[type="text"]
+     {
+          width: 600px;
+          height: 50px;
+          border:2px solid red;
+     }
+     #search input[type="button"]
+     {
+          width: 200px;
+          background-color: red;
+          height: 58px;
+     }
+
+     #footer
+     {
+     	height: 5%;
+     	background-color: red;
+     } 
+
+     #footer span
+     {
+     	margin-left: 400px;
+     	color:white;
+     }

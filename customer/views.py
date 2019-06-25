@@ -22,9 +22,15 @@ def login(request):
 
 
 def register(request):
-	r = Register(email=request.POST["txtemail"],password=request.POST["txtpass"],mobile=request.POST["txtmobile"],fullname=request.POST["txtfname"])
-	r.save()
-	return render(request,"customer/index.html",{'key':'Registration successfully'})
+    chk = Register.objects.filter(email=request.POST["txtemail"])
+    s=""
+    if(chk.count()>0):
+        s="Email id Already Exist"
+    else:
+     r = Register(email=request.POST["txtemail"],password=request.POST["txtpass"],mobile=request.POST["txtmobile"],fullname=request.POST["txtfname"])
+     r.save()
+     s="Registration successfully"
+    return render(request,"customer/index.html",{'key':s})
 
 
 
