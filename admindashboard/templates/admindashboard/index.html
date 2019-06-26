@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+<h1>Admin Login Here</h1>
+	<form action="login" method="post">
+		{% csrf_token %}
+      <table>
+      	<tr><td><input type="text" name="txtuser" placeholder="Enter Username" required="" /></td>
+      	<tr><td><input type="password" name="txtpass" placeholder="Enter password" required="" /></td>
+
+        <tr><td><input type="submit" name="btnlogin" value="Login" required="" /></td>
+
+      </table>
+
+	</form>
+</center>
+</body>
+</html>
