@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	
+<h1>Admin Login Here</h1>
+<div style="float:left">
+	<form action="subcat" method="post">
+		{% csrf_token %}
+      <table>
+      	<tr><td><input type="text" name="txtsubcat" placeholder="Enter SubCategory Name" required="" /></td>
+      	<tr><td>
+      		<select name="ddlcatid">
+      			<option value="">Select Category </option>
+      			 {% for c in key %}
+      			<option value="{{c.id}}">{{c.catname}} </option>
+      			 {% endfor %}
+
+      		</select>
+
+      	</td></tr>
+
+        <tr><td><input type="submit" name="btncat" value="Add SubCategory" required="" /></td></tr>
+
+      </table>
+
+	</form>
+</div>
+<div style="float:right">
+<h1>ALL SUBCATEGORY Record Here</h1>
+{% if key1 %}
+   <table border="1">
+
+   	<tr><th>SUBCATID</th><th>NAME</th><th>CATID</th></tr>
+    {% for stu in key1 %}
+      <tr>  <td>{{ stu.id }}</td>
+         <td>{{ stu.subcatname }}</td>
+          <td>{{ stu.catid }}</td>
+          
+     </tr>
+    {% endfor %}
+    {% else %}
+
+    <p>No SubCategory are available.</p>
+{% endif %}
+</div>
+
+</body>
+</html>
