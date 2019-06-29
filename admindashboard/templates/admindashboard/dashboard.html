@@ -2,9 +2,43 @@
 <html>
 <head>
 	<title></title>
+	<script>
+     function showdata(a)
+     {
+
+     	xmlhttp = new XMLHttpRequest();
+     	xmlhttp.onreadystatechange=function()
+     	{
+     		document.getElementById("res").innerHTML=xmlhttp.responseText;
+     		
+     	}
+        xmlhttp.open("GET","ajaxcode?q="+a,true);
+        xmlhttp.send();
+
+
+     }
+	</script>
 </head>
 <body>
 	<a href="logout">logout</a>
 <h1>Welcome in Admin Dashboard</h1>
+<hr>
+<input type="text" id="txtdata" onkeyup="showdata(this.value)">
+<br>
+<div id="res"></div>
+
+
+<hr>
+
+<h1>File Upload Example</h1>
+<form action="simple_upload" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit">Upload</button>
+  </form>
+
+  {% if key %}
+    <p>File uploaded at: <a href="{{ key }}">{{ key }}</a></p>
+  {% endif %}
 </body>
 </html>

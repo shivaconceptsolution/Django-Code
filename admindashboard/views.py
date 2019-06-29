@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from admindashboard.models import Category,Subcategory
+from django.core.files.storage import FileSystemStorage
+
 def index(request):
 	return render(request,"admindashboard/index.html")
 def login(request):
@@ -15,7 +17,21 @@ def dashboard(request):
    if 'aid' not in request.session:
     return redirect("/adash")	
    else: 
-    return render(request,"admindashboard/dashboard.html")        	
+    return render(request,"admindashboard/dashboard.html") 
+def ajaxcode(request):
+ # res = Category.objects.filter(catname=request.GET["q"])
+  res = Category.objects.filter(catname__contains=request.GET["q"])
+  return render(request,"admindashboard/ajaxdemo.html",{'key':res})
+def simple_upload(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        data = fs.url(filename)
+        return render(request, 'admindashboard/dashboard.html', {
+            'key': data
+        })
+    return render(request, 'admindashboard/dashboard.html')            	
 def logout(request):
     del request.session["aid"]
     return redirect("/adash")	
